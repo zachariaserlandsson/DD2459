@@ -2,14 +2,9 @@ import java.lang.IllegalArgumentException;
 
 public class ArrayOperations {
   public static void main(String[] args) {
-    int[] a = new int[]{0, -1, 132, 1024, 402, 1, 1, 0};
-    int[] b = new int[]{0, -1, 132, 1024, 402, 1, 1, 0};
+    int[] a = new int[]{0, 132, 1024, 402, 1, 1};
     sort(a);
-    for (int i = 0; i < a.length; i++) {
-      System.out.println(a[i]);
-    }
-    System.out.println(membershipUnsorted(b, 1024));
-    System.out.println(membershipUnsorted(b, 2024));
+    System.out.println(search(a, 0));
   }
 
   /**
@@ -41,7 +36,7 @@ public class ArrayOperations {
   }
 
   /**
-  * Method that searchs a sorted integer-array of arbitrary size for a value key
+  * Method that searches a sorted integer-array of arbitrary size for a value key
   * using the binary search algorithm.
   * @param A integer array of arbitrary length. Needs to be sorted.
   * @param key integer value to be searched for in the sorted array A
@@ -53,7 +48,7 @@ public class ArrayOperations {
       throw new IllegalArgumentException("Array must not be empty");
     }
     int x;
-    int l = 1;
+    int l = 0;
     int r = A.length - 1;
 
     do {
