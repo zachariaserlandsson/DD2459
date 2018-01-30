@@ -3,14 +3,13 @@ import java.lang.IllegalArgumentException;
 public class ArrayOperations {
   public static void main(String[] args) {
     int[] a = new int[]{0, -1, 132, 1024, 402, 1, 1, 0};
+    int[] b = new int[]{0, -1, 132, 1024, 402, 1, 1, 0};
     sort(a);
     for (int i = 0; i < a.length; i++) {
       System.out.println(a[i]);
     }
-    System.out.println(search(a, 1024));
-    System.out.println(search(a, 2024));
-    System.out.println(membership(a, 1024));
-    System.out.println(membership(a, 2024));
+    System.out.println(membershipUnsorted(b, 1024));
+    System.out.println(membershipUnsorted(b, 2024));
   }
 
   /**
@@ -74,8 +73,8 @@ public class ArrayOperations {
   }
 
   /**
-  Method that evaluates however an integer value key is present in an integer array A.
-  Makes use of the search()-method.
+  * Method that evaluates however an integer value key is present in an integer array A.
+  * Makes use of the search()-method.
   * @param A integer array of arbitrary length. Needs to be sorted.
   * @param key integer value to be evaluated for membership in the sorted array A.
   * @return returns true if the value key is present in the array, and false if it isn't.
@@ -87,5 +86,17 @@ public class ArrayOperations {
     } else {
       return false;
     }
+  }
+
+  /**
+  * Method that evaluates however an integer value key is present in an integer array A.
+  * Makes use of the search()-method and sort()-method.
+  * @param A integer array of arbitrary length. Doesn't need to be sorted.
+  * @param key integer value to be evaluated for membership in the array A.
+  * @return returns true if the value key is present in the array, and false if it isn't.
+  */
+  public static boolean membershipUnsorted(int[] A, int key) {
+    sort(A);
+    return membership(A, key);
   }
 }
