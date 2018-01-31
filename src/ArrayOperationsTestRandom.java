@@ -4,37 +4,22 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import junit.framework.TestCase;
-import java.io.FileWriter;
-import java.io.BufferedWriter;
-import java.io.File;
 
-class ArrayOperationsTest extends TestCase {
+class ArrayOperationsTestRandom extends TestCase {
 	int[] randArr;
 	int range = 10000; // Randomises integers in the range [-range, range]
 	
 	@BeforeEach
 	protected void setUp() throws Exception {
-		BufferedWriter writer = new BufferedWriter(new FileWriter(new File("src", "test_output.txt"))); // Writes the array to the specified file
-		writer.write("Random Array: {");
 		randArr = new int[20];
 		for (int i = 0; i < randArr.length; i++){
 			randArr[i] = (int)(Math.random() * range * 2) - range/2; 
-		    writer.write(Integer.toString(randArr[i]));
-		    if (i < randArr.length - 1) {
-		    	writer.write(" ");
-		    }
 		}
-		writer.write("}");
-		writer.close();
 	}
 	
 	@AfterEach
 	protected void tearDown() throws Exception {
 		randArr = new int[20];
-	}
-
-	@Test
-	void test() {
 	}
 	
 	@Test
@@ -75,5 +60,17 @@ class ArrayOperationsTest extends TestCase {
 		ArrayOperations.sort(randArr);
 		int key = randArr[randArr.length-1];
 		assertEquals(randArr.length-1, ArrayOperations.search(randArr, key));
+	}
+	
+	@Test
+	void testMembershipUnsortedSunny() {
+		int key = randArr[0];
+		assertTrue(ArrayOperations.membershipUnsorted(randArr, key));
+	}
+	
+	@Test
+	void testMembershipUnsortedRainy() {
+		int key = range + 1;
+		assertFalse(ArrayOperations.membershipUnsorted(randArr, key));
 	}
 }
