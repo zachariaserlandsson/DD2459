@@ -1,5 +1,11 @@
 import java.lang.IllegalArgumentException;
 
+/**
+ * @author zacharias erlandsson
+ * Class containing several different Array Operations (binary searching, sorting
+ * searching an unsorted array, membership queries). The class is meant to be used in
+ * a static context and not as instances.
+ */
 public class ArrayOperations {
   public static void main(String[] args) {
     int[] a = new int[]{0, 132, 1024, 402, 1, 1};
