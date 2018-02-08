@@ -23,10 +23,10 @@ class ArrayOperationsTestPairwise {
 		pairwiseArr3 = new int[arrLen];
 		//pairwiseArr3 = new int[]{-1568, 10, 6083, 10569, 9670, 7901, 8454, 1584, 5549, -1103, 5479, 14022, 13242, -1848, -332, 10463, 4517, 999, 9583, -1359};
 
-		
+
 		// Setup pairwiseArr3 to be of size 200
 		pairwiseArr3 = new int[200];
-		Scanner scanner = new Scanner(new File("test200.txt")); // File created with python script with 200 values ranging from -1000 to 1000, first 2 values are set to 10 and 200
+		Scanner scanner = new Scanner(new File("text_files/test200.txt")); // File created with python script with 200 values ranging from -1000 to 1000, first 2 values are set to 10 and 200
 		int a = 0;
 		while(scanner.hasNextInt()){
 			pairwiseArr3[a++] = scanner.nextInt();
@@ -35,7 +35,7 @@ class ArrayOperationsTestPairwise {
 		/*
 		// Setup pairwiseArr3 to be of size 500
 		pairwiseArr3 = new int[500];
-		Scanner scanner = new Scanner(new File("test500.txt")); // File created with python script with 500 values ranging from -1000 to 1000, first 2 values are set to 10 and 200
+		Scanner scanner = new Scanner(new File("text_files/test500.txt")); // File created with python script with 500 values ranging from -1000 to 1000, first 2 values are set to 10 and 200
 		int a = 0;
 		while(scanner.hasNextInt()){
 			pairwiseArr3[a++] = scanner.nextInt();
