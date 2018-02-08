@@ -20,17 +20,17 @@ public class ArrayOperations {
   */
   public static void sort(int[] A) {
     if (A.length == 0) {
-      throw new IllegalArgumentException("Array must not be empty");
+      throw new IllegalArgumentException("Array must not be empty"); // Commented this out as mutation
     }
     int currMin;
     int currMinIdx;
     int pivotValueOld;
-    for (int pivot = 0; pivot < A.length-1; pivot++){
+    for (int pivot = 0; pivot < A.length-1; pivot++){ // Changed to ".. pivot < A.length -2" in mutation
       currMin = A[pivot];
       currMinIdx = pivot;
       pivotValueOld = A[pivot];
       for (int i = pivot; i < A.length; i++){
-        if (A[i] < currMin) {
+    	if (A[i] < currMin) { // Changed to >= in mutation
           currMin = A[i];
           currMinIdx = i;
         }
@@ -53,16 +53,16 @@ public class ArrayOperations {
     if (A.length == 0) {
       throw new IllegalArgumentException("Array must not be empty");
     }
-    int x;
-    int l = 0;
+    int x; 
+    int l = 0; // changed to 1 in mutation 
     int r = A.length - 1;
 
     do {
       x = (l+r) / 2;
       if (key < A[x]) {
-        r = x - 1;
+    	r = x - 1; //changed to r = x -2 in mutation 
       } else {
-        l = x + 1;
+        l = x + 1; //changed to l = x + 2 in mutation
       }
     } while (key != A[x] && l <= r);
 
