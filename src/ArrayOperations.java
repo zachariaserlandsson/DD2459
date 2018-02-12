@@ -82,7 +82,7 @@ public class ArrayOperations {
   */
   public static boolean membership(int[] A, int key) {
     int index = search(A, key);
-    if (index > 0) {
+    if (index >= 0) {
       return true;
     } else {
       return false;

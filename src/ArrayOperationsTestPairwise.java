@@ -1,11 +1,14 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.File;
+import java.util.Scanner;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 
-import java.io.File;
-import java.util.Scanner;
+import com.google.code.tempusfugit.concurrency.IntermittentTestRunner;
 
 class ArrayOperationsTestPairwise {
 	int[] pairwiseArr1;
@@ -16,7 +19,7 @@ class ArrayOperationsTestPairwise {
 	int arrLen = 20;
 
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 		System.out.println("--------------------");
 		pairwiseArr1 = new int[arrLen];
 		pairwiseArr2 = new int[0];
@@ -51,7 +54,7 @@ class ArrayOperationsTestPairwise {
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 		pairwiseArr1 = new int[arrLen];
 		pairwiseArr2 = new int[0];
 		pairwiseArr3 = new int[arrLen];
@@ -60,7 +63,7 @@ class ArrayOperationsTestPairwise {
 	}
 
 	@Test
-	void testSortSunny0() {
+	public void testSortSunny0() {
 		ArrayOperations.sort(pairwiseArr1);
 		boolean sorted = true;
 		for (int i = 0; i < arrLen - 1; i++) {
@@ -72,7 +75,7 @@ class ArrayOperationsTestPairwise {
 	}
 	
 	@Test
-	void testSortSunny1() {
+	public void testSortSunny1() {
 		ArrayOperations.sort(pairwiseArr3);
 		boolean sorted = true;
 		for (int i = 0; i < arrLen - 1; i++) {
@@ -84,7 +87,7 @@ class ArrayOperationsTestPairwise {
 	}
 	
 	@Test
-	void testSortRainy() {
+	public void testSortRainy() {
 		try {
 			ArrayOperations.sort(pairwiseArr2);
 			fail("Exception not thrown"); // Fail if an exception has not been caught"
@@ -96,25 +99,25 @@ class ArrayOperationsTestPairwise {
 	}
 	
 	@Test
-	void testSearchSunny0() {
+	public void testSearchSunny0() {
 		ArrayOperations.sort(pairwiseArr1);
 		assertTrue(ArrayOperations.search(pairwiseArr1, key1) >= 0); // The key has been found
 	}
 	
 	@Test
-	void testSearchSunny1() {
+	public void testSearchSunny1() {
 		ArrayOperations.sort(pairwiseArr3);
 		assertTrue(ArrayOperations.search(pairwiseArr3, key1) >= 0); // The key has been found
 	}
 	
 	@Test
-	void testSearchRainy0() {
+	public void testSearchRainy0() {
 		ArrayOperations.sort(pairwiseArr1);
 		assertEquals(ArrayOperations.search(pairwiseArr1, key2), -1);
 	}
 	
 	@Test
-	void testSearchRainy1() {
+	public void testSearchRainy1() {
 		try {
 			ArrayOperations.sort(pairwiseArr2);
 			ArrayOperations.search(pairwiseArr2, key1);
@@ -127,7 +130,7 @@ class ArrayOperationsTestPairwise {
 	}
 	
 	@Test
-	void testSearchRainy2() {
+	public void testSearchRainy2() {
 		try {
 			ArrayOperations.sort(pairwiseArr2);
 			ArrayOperations.search(pairwiseArr2, key2);
@@ -140,28 +143,28 @@ class ArrayOperationsTestPairwise {
 	}
 	
 	@Test
-	void testSearchRainy3() {
+	public void testSearchRainy3() {
 		ArrayOperations.sort(pairwiseArr3);
 		assertEquals(ArrayOperations.search(pairwiseArr3, key2), -1);
 	}
 	
 	@Test
-	void testMembershipUnsortedSunny0() {
+	public void testMembershipUnsortedSunny0() {
 		assertTrue(ArrayOperations.membershipUnsorted(pairwiseArr1, key1));
 	}
 	
 	@Test
-	void testMembershipUnsortedSunny1() {
+	public void testMembershipUnsortedSunny1() {
 		assertTrue(ArrayOperations.membershipUnsorted(pairwiseArr3, key1));
 	}
 	
 	@Test
-	void testMembershipUnsortedRainy0() {
+	public void testMembershipUnsortedRainy0() {
 		assertFalse(ArrayOperations.membershipUnsorted(pairwiseArr1, key2));
 	}
 	
 	@Test
-	void testMembershipUnsortedRainy1() {
+	public void testMembershipUnsortedRainy1() {
 		try {
 			ArrayOperations.membershipUnsorted(pairwiseArr2, key1);
 			fail("Exception not thrown");
@@ -173,7 +176,7 @@ class ArrayOperationsTestPairwise {
 	}
 	
 	@Test
-	void testMembershipUnsortedRainy2() {
+	public void testMembershipUnsortedRainy2() {
 		try {
 			ArrayOperations.membershipUnsorted(pairwiseArr2, key2);
 			fail("Exception not thrown");
@@ -185,7 +188,7 @@ class ArrayOperationsTestPairwise {
 	}
 	
 	@Test
-	void testMembershipUnsortedRainy3() {
+	public void testMembershipUnsortedRainy3() {
 		assertFalse(ArrayOperations.membershipUnsorted(pairwiseArr3, key2));
 	}
 }
